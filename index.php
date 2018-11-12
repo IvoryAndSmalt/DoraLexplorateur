@@ -35,29 +35,22 @@ chdir('logo');
 echo getcwd() . "<br>"; -->
 
 
-AFFICHER LES DOSSIERS
+AFFICHER LES DOSSIERS<br>
 <?php
+
+$current_dir = getcwd();
+
 if ($handle = opendir('/home/stagiaire/Bureau/html/')) {
-    echo "Vous êtes dans le dossier : $handle<br>";
-
-    /* Ceci est la façon correcte de traverser un dossier. */
+    echo "Vous êtes dans le dossier : $current_dir<br>";
+    
     while (false !== ($en = readdir($handle))) {
-        echo '<a href='.$en.'>'.$en.'</a><br>';
+        $lien = readdir($handle);
+        echo '<a href="../"' . $lien. '>' . $en . '</a><br>';
     }
-    echo getcwd();
 }
-echo getcwd();
-chdir("assets");?>
 
-<a href="<?php echo getcwd() . "\n";?>">assets</a><br>
+?>
 
-AUTRE METHODE POUR AFFICHER
-<!-- $dir    = '/xampp/htdocs/fonction-dossier_PHP';
-$files1 = scandir($dir);
-$files2 = scandir($dir, 1);
-
-print_r($files1);
-print_r($files2); -->
 
     
 </body>
