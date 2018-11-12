@@ -20,7 +20,7 @@ Bonus : Intégrer votre projet avec Twig.  -->
 
 <body>
 
-    CHANGER DE DOSSIER ACTIF
+    CHANGER DE DOSSIER ACTIF <br>
 <!-- // chdir (directory)
 
 // dossier courant
@@ -33,23 +33,30 @@ chdir('logo');
 // dossier courant
 echo getcwd() . "<br>"; -->
 
-AFFICHER LES DOSSIERS
-<!-- if ($handle = opendir('/xampp/htdocs/fonction-dossier_PHP')) {
-    echo "Gestionnaire du dossier : $handle<br>";
+<a href="">$en</a> <br>
+<!-- AFFICHER LES DOSSIERS -->
+<?php  
+
+if ($handle = opendir("C:\wamp64\www\DoraLexplorateur")) {
+    echo "Gestionnaire du dossier : ".$handle."<br>";
     echo "Entrées :<br>";
 
     /* Ceci est la façon correcte de traverser un dossier. */
-    while (false !== ($en = readdir($handle))) {
-        echo "$en<br>";
+    while (false !== ($en = readdir($handle))) { ?>
+        <a href="index.php"><?php echo$en ?></a> <br>
+         <!-- echo "$en<br>" -->
+        <?php
     }
 
-    /* Ceci est la MAUVAISE façon de traverser un dossier. */
-    while ($entry = readdir($handle)) {
-        echo "$entry<br>";
-    }
+    // /* Ceci est la MAUVAISE façon de traverser un dossier. */
+    // while ($entry = readdir($handle)) {
+    //     echo "$entry<br>";
+    // }
 
     closedir($handle);
-} -->
+}
+
+?>
 
 AUTRE METHODE POUR AFFICHER
 <!-- $dir    = '/xampp/htdocs/fonction-dossier_PHP';
@@ -59,7 +66,7 @@ $files2 = scandir($dir, 1);
 print_r($files1);
 print_r($files2); -->
 
-    
+
 </body>
 <script src="assets/js/script.js"></script>
 </html>
