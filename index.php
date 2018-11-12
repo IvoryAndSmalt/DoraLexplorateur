@@ -44,8 +44,7 @@ if ($handle = opendir('/home/stagiaire/Bureau/html/')) {
     echo "Vous êtes dans le dossier : $current_dir<br>";
     
     while (false !== ($en = readdir($handle))) {
-        $lien = readdir($handle);
-        echo '<a href="../"' . $lien. '>' . $en . '</a><br>';
+        echo '<a href=../' . $en . '>' . $en . '</a><br>';
     }
 }
 
