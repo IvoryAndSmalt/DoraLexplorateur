@@ -20,7 +20,49 @@ Bonus : Intégrer votre projet avec Twig.  -->
 
 <body>
 
+<?php
+
+    function scan($dir) {
+    // On regarde déjà si le dossier existe
+    if(is_dir($dir)) {
+        // On le scan et on récupère dans un tableau le nom des fichiers et des dossiers
+        $files = scandir($dir);
+
+        // On supprime . et .. qui sont respectivement le dossier courant et le dossier précédent
+        unset($files[0], $files[1]);
+
+        // On tri le tableau de façon intéligente (à la façon humaine)
+        // http://www.php.net/function.natcasesort
+        natcasesort($files);
+
+        // On commence par afficher les dossiers
+        foreach($files as $f) {
+            // S'il y a un dossier
+            if(is_dir($dir.$f)) {
+                // On affiche alors les données
+                echo '<li class="folder">'.$f.'</li>';
+                echo '<ul class="tree">';
+
+                // Et du coup comme c'est un dossier, un le rescan
+                scan($dir.$f."/");
+
+                echo '</ul>';
+            }
+        }
+
+        // Puis on affiche les fichiers
+        foreach($files as $f) {
+            // S'il y a un fichier
+            if(is_file($dir.$f)) {
+                echo '<li class="file" rel="'.$dir.$f.'">'.$f.'</li>';
+            }
+        }
+    }
+}
+ ?>
+
     CHANGER DE DOSSIER ACTIF <br>
+
 <!-- // chdir (directory)
 
 // dossier courant
@@ -32,6 +74,7 @@ chdir('logo');
 
 // dossier courant
 echo getcwd() . "<br>"; -->
+
 
 <a href="">$en</a> <br>
 <!-- AFFICHER LES DOSSIERS -->
@@ -57,6 +100,24 @@ if ($handle = opendir("C:\wamp64\www\DoraLexplorateur")) {
 }
 
 ?>
+
+
+<!-- AFFICHER LES DOSSIERS -->
+<?php
+if ($handle = opendir('/home/stagiaire/Bureau/html/')) {
+    echo "Vous êtes dans le dossier : $handle<br>";
+
+    /* Ceci est la façon correcte de traverser un dossier. */
+    while (false !== ($en = readdir($handle))) {
+        echo '<a href='.$en.'>'.$en.'</a><br>';
+    }
+    echo getcwd();
+}
+echo getcwd();
+chdir("assets");?>
+
+<a href="<?php echo getcwd() . "\n";?>">assets</a><br>
+
 
 AUTRE METHODE POUR AFFICHER
 <!-- $dir    = '/xampp/htdocs/fonction-dossier_PHP';
