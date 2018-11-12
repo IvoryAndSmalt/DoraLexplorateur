@@ -21,6 +21,7 @@ Bonus : Intégrer votre projet avec Twig.  -->
 <body>
 
     CHANGER DE DOSSIER ACTIF
+
 <!-- // chdir (directory)
 
 // dossier courant
@@ -33,23 +34,22 @@ chdir('logo');
 // dossier courant
 echo getcwd() . "<br>"; -->
 
+
 AFFICHER LES DOSSIERS
-<!-- if ($handle = opendir('/xampp/htdocs/fonction-dossier_PHP')) {
-    echo "Gestionnaire du dossier : $handle<br>";
-    echo "Entrées :<br>";
+<?php
+if ($handle = opendir('/home/stagiaire/Bureau/html/')) {
+    echo "Vous êtes dans le dossier : $handle<br>";
 
     /* Ceci est la façon correcte de traverser un dossier. */
     while (false !== ($en = readdir($handle))) {
-        echo "$en<br>";
+        echo '<a href='.$en.'>'.$en.'</a><br>';
     }
+    echo getcwd();
+}
+echo getcwd();
+chdir("assets");?>
 
-    /* Ceci est la MAUVAISE façon de traverser un dossier. */
-    while ($entry = readdir($handle)) {
-        echo "$entry<br>";
-    }
-
-    closedir($handle);
-} -->
+<a href="<?php echo getcwd() . "\n";?>">assets</a><br>
 
 AUTRE METHODE POUR AFFICHER
 <!-- $dir    = '/xampp/htdocs/fonction-dossier_PHP';
