@@ -8,57 +8,67 @@
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
-<!-- Créer un  explorateur de fichiers en utilisant PHP. 
-L'explorateur doit permettre de naviguer dans tous 
-vos dossiers présents sur votre serveur local, 
-de visualiser les fichiers si le type le permet 
-(images, texte) et proposer le téléchargement sinon. 
-Vous devrez créer une identité visuelle ergonomique et 
-originale pour votre projet.
-Bonus : Intégrer votre projet avec Twig.  -->
-
 <body>
-    <h1>Vous êtes dans le dossier : </h1>
+<!-- HEADER ET CHEMIN -->
+    <h1>Dora L'explorateur</h1>
+    <p><a href="./">Accueil</a></p>
 <div class="contenu">
 <?php
-
+$parent = "/var/www/html/";
 if (isset($_GET['dir'])){
     liste($_GET['dir']);
 }
 
 else{
-    liste('/xampp/htdocs/');
+    liste($parent);
 }
 
 function liste($dir){
     if (isset($_GET['dir'])){
-        $parent = "/xampp/htdocs/";
-    $dir = '/xampp/htdocs/' . $_GET['dir'];
+
+    $dir = '/var/www/html/' . $_GET['dir'];
     }
     else {
-        $dir = '/xampp/htdocs/';
+        $dir = '/var/www/html/';
     }
     if ($handle = opendir($dir)) {
-        echo str_replace("/xampp/htdocs/", "Localhost/", $dir);
+        echo str_replace("/var/www/html/", "Localhost/", $dir);
     ?>
 </div>
+<!-- HEADER ET CHEMIN -->
+
+
+<!-- FONCTION AFFICHER LES DOSSIERS -->
+
+
+
+
 
 <div class="dossier">
     <?php
         while (false !== ($en = readdir($handle))) {
             if($en !='.'&& $en != '..' && $en != '.git') {
                 if(isset($_GET['dir'])){ 
-                    $lienget="bibi.php?dir=".$_GET['dir'] . "/" . $en?>
-
+                    $lienget="index.php?dir=".$_GET['dir'] . "/" . $en;
+                    $path_parts = pathinfo($_GET['dir'] . "/" . $en);
+                    if(isset($path_parts['extension'])){
+                        $extension = $path_parts['extension'];
+                    }
+                    else{
+                        $extension ="";
+                    }
+                    // $extension porte le STRING à tester dans le switch
+                    ?>
+                    
                     <div class="imalien">
-                        <a href="<?php echo $lienget ?>"><img id="lien" src="img/car.svg" alt="vlan le dossier"/><?=$en?></a>
+                        <a href="<?=$lienget ?>"><img id="lien" src="img/car.svg" alt="vlan le dossier"/><?="<p>" . $en . "</p>"?></a>
                     </div><br>
 
                 <?php
                 }
                 else{?>
                     <div class="imalien">
-                        <a href="bibi.php?dir=<?=$en?>"><img id="lien" src="img/car.svg" alt="vlan le dossier"/><?=$en?></a><br>
+                        <a href="index.php?dir=<?=$en?>"><img id="lien" src="img/car.svg" alt="vlan le dossier"/><?="<p>" . $en . "</p>"?></a><br>
                     </div>
                 <?php
             }
@@ -70,6 +80,7 @@ function liste($dir){
 ?>
 
 </div>
+
 <script src="assets/js/script.js"></script>
 
 </body>
