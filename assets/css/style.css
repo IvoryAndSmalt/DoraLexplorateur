@@ -50,12 +50,18 @@ table {
 
 
 /********************* le reset s'arrete la !!!! ***********************************/
+.contenu{
+    border: solid; color: black;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+
 
 .dossier{
     display: flex;
     flex-wrap: wrap;
-    justify-content:center;
-    width: 900px; 
+    justify-content:left;
     align-items: stretch;  
     max-width: 800px;
     width: 100%;
@@ -64,7 +70,7 @@ table {
 }
 
 .dossier div{
-    margin: 10px 15px;
+    margin: 10px 15px 10px 0px;
 }
 
 .dossier div:hover a{
@@ -93,9 +99,3 @@ h1{
 }
 
 
-.contenu{
-    border: solid; color: black;
-    max-width: 800px;
-    width: 100%;
-    margin: 0 auto;
-}
