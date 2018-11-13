@@ -50,12 +50,28 @@ table {
 
 
 /********************* le reset s'arrete la !!!! ***********************************/
+body{
+    background-color: #dadfe8;
+    /* background-image: url("../../img/DoraMap.png"); */
+    /* background-repeat: no-repeat; */
+    /* font-family: 'Roboto', sans-serif; */
+    font-family: 'Montserrat', sans-serif;
+    
+}
+.contenu{
+        border: solid; color: black;
+        max-width: 800px;
+        width: 100%;
+        margin: 0 auto;
+        padding: 5px 15px;
+        border-radius: 5px;
+    }
 
 .dossier{
     display: flex;
     flex-wrap: wrap;
     justify-content:center;
-    width: 900px; 
+    
     align-items: stretch;  
     max-width: 800px;
     width: 100%;
@@ -68,7 +84,7 @@ table {
 }
 
 .dossier div:hover a{
-    color: rgba(255, 0, 0, 0.5);
+    color:#91B2DA;
 }
 
 .imalien img, a {
@@ -76,10 +92,11 @@ table {
     width: 100%;
     text-decoration: none;
     color: black;
+    font-size: 14px; 
 }
 
 .imalien img{
-max-width: 30px;
+max-width: 50px;
 height: auto;
 margin-left: auto;
 margin-right: auto;
@@ -90,12 +107,8 @@ h1{
     margin-bottom: 20px;
     text-align: center;
     padding-top: 5px;
+    font-size: 50px;
 }
 
 
-.contenu{
-    border: solid; color: black;
-    max-width: 800px;
-    width: 100%;
-    margin: 0 auto;
-}
+
