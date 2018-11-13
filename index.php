@@ -19,25 +19,7 @@ Bonus : Intégrer votre projet avec Twig.  -->
 
 <body>
 
-    CHANGER DE DOSSIER ACTIF<br>
-
-<!-- // chdir (directory)
-
-// dossier courant
-echo getcwd() . "<br>";
-
-// chdir = change de dossier
-// chdir () change le dossier courant de PHP en directory
-chdir('logo');
-
-// dossier courant
-echo getcwd() . "<br>"; -->
-
-
-AFFICHER LES DOSSIERS<br>
-
 <?php
-
 
 if (isset($_GET['dir'])){
     liste($_GET['dir']);
@@ -50,9 +32,6 @@ function liste($dir){
     if (isset($_GET['dir'])){
         $parent = "/var/www/html/";
     $dir = '/var/www/html/' . $_GET['dir'];
-    echo "NOTRE DOSSIER<br>";
-    echo getcwd() . "<br>";
-    echo "NOTRE DOSSIER<br>";
     }
     else {
         $dir = '/var/www/html/';
@@ -61,14 +40,20 @@ function liste($dir){
         echo "Vous êtes dans le dossier : $dir<br>";
     
         while (false !== ($en = readdir($handle))) {
-            echo '<a href=index.php?dir='.$_GET['dir']."/".$en . '>' . $en . '</a><br>';
+            if(isset($_GET['dir'])){
+                echo '<a href="index.php?dir='.$_GET['dir']."/".$en . '">' . $en . '</a><br>';
+            }
+            else{
+                echo '<a href="index.php?dir='.$en . '">' . $en . '</a><br>';
+            }
         }
     }
 }
 
 ?>
-</body>
 
 <script src="assets/js/script.js"></script>
+
+</body>
 
 </html>
