@@ -24,6 +24,7 @@ Bonus : Intégrer votre projet avec Twig.  -->
 if (isset($_GET['dir'])){
     liste($_GET['dir']);
 }
+
 else{
     liste('/var/www/html/');
 }
@@ -40,8 +41,11 @@ function liste($dir){
         echo "Vous êtes dans le dossier : $dir<br>";
     
         while (false !== ($en = readdir($handle))) {
-            if(isset($_GET['dir'])){
-                echo '<a href="index.php?dir='.$_GET['dir']."/".$en . '">' . $en . '</a><br>';
+            if(isset($_GET['dir'])){ ?>
+                
+                <a href="index.php?dir=<?php echo $_GET['dir'] . "/" . $en?>"><?php echo $en?></a><br>
+                
+            <?php
             }
             else{
                 echo '<a href="index.php?dir='.$en . '">' . $en . '</a><br>';
