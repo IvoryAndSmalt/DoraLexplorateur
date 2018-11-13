@@ -37,12 +37,7 @@ function liste($dir){
 </div>
 <!-- HEADER ET CHEMIN -->
 
-
 <!-- FONCTION AFFICHER LES DOSSIERS -->
-
-
-
-
 
 <div class="dossier">
     <?php
@@ -52,6 +47,7 @@ function liste($dir){
                     $lienget="index.php?dir=".$_GET['dir'] . "/" . $en;
                     $path_parts = pathinfo($_GET['dir'] . "/" . $en);
                     if(isset($path_parts['extension'])){
+                        global $extension;
                         $extension = $path_parts['extension'];
                     }
                     else{
@@ -75,6 +71,22 @@ function liste($dir){
         }
     }
 }
+}
+
+switch ($extension) {
+    case 'png, svg, jpg, gif, leformat':
+        echo '<div class="imalien"><a href="index.php?dir='.$en.'><img id="lien" src="img/car.svg" alt="vlan le dossier"/><p>' . $en . '</p>?></a><br></div>';
+        break;
+    
+    default:
+    if (isset($_GET['dir'])){
+        liste($_GET['dir']);
+    }
+    
+    else{
+        liste($parent);
+    }
+        break;
 }
 
 ?>
