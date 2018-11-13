@@ -47,15 +47,55 @@ table {
 	border-spacing: 0;
 }
 
+
+
+/********************* le reset s'arrete la !!!! ***********************************/
+
 .dossier{
     display: flex;
     flex-wrap: wrap;
-    justify-content:flex-start;
-    width: 860px;
-    background-color: seagreen;
-    align-items: stretch;
+    justify-content:center;
+    width: 900px; 
+    align-items: stretch;  
+    max-width: 800px;
+    width: 100%;
+    margin: 15px auto;
+    
 }
 
-.dossier a{
-    margin: 0 5px;
+.dossier div{
+    margin: 10px 15px;
+}
+
+.dossier div:hover a{
+    color: rgba(255, 0, 0, 0.5);
+}
+
+.imalien img, a {
+    display: block;
+    width: 100%;
+    text-decoration: none;
+    color: black;
+}
+
+.imalien img{
+max-width: 30px;
+height: auto;
+margin-left: auto;
+margin-right: auto;
+}
+
+
+h1{
+    margin-bottom: 20px;
+    text-align: center;
+    padding-top: 5px;
+}
+
+
+.contenu{
+    border: solid; color: black;
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
 }
