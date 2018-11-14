@@ -5,56 +5,112 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Dora l'explorateur</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet"> 
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
-<!-- Créer un  explorateur de fichiers en utilisant PHP. 
-L'explorateur doit permettre de naviguer dans tous 
-vos dossiers présents sur votre serveur local, 
-de visualiser les fichiers si le type le permet 
-(images, texte) et proposer le téléchargement sinon. 
-Vous devrez créer une identité visuelle ergonomique et 
-originale pour votre projet.
-Bonus : Intégrer votre projet avec Twig.  -->
-
 <body>
+<!-- HEADER ET CHEMIN -->
+    <h1>Dora L'explorateur</h1>
+    <a href="./">Accueil</a>
 
+<div class="contenu">
 <?php
-
-if (isset($_GET['dir'])){
+$parent = "/var/www/html/";
+if(isset($_GET['dir'])){
     liste($_GET['dir']);
 }
-
 else{
-    liste('/var/www/html/');
+    liste($parent);
 }
 
 function liste($dir){
     if (isset($_GET['dir'])){
-        $parent = "/var/www/html/";
+
     $dir = '/var/www/html/' . $_GET['dir'];
     }
     else {
         $dir = '/var/www/html/';
     }
     if ($handle = opendir($dir)) {
-        echo "Vous êtes dans le dossier : $dir<br>";
-    
+        echo str_replace("/var/www/html/", "Localhost/", $dir);?>
+    </div>
+<!-- FONCTION AFFICHER LES DOSSIERS -->
+
+<div class="dossier">
+    <?php
         while (false !== ($en = readdir($handle))) {
-            if(isset($_GET['dir'])){ ?>
-                
-                <a href="index.php?dir=<?php echo $_GET['dir'] . "/" . $en?>"><?php echo $en?></a><br>
-                
-            <?php
-            }
-            else{
-                echo '<a href="index.php?dir='.$en . '">' . $en . '</a><br>';
+            if($en != '.' && $en != '..' && $en != '.git') {
+                if(isset($_GET['dir'])){
+                    $lienget="index.php?dir=".$_GET['dir'] . "/" . $en;
+                    $path_parts = pathinfo($_GET['dir'] . "/" . $en);
+
+                    // S'IL Y A UNE EXTENSION
+                    if(isset($path_parts['extension'])){
+                        $extension = $path_parts['extension'];
+                        switch ($extension) {
+                            case 'png';
+                            case 'jpg';
+                            case 'svg';
+                            case 'gif';
+                            $sourceimg = "img/DoraMap.png"
+                            ?>
+                                <div class="imalien">
+                                    <a href="/<?=$_GET['dir']."/".$en?>" target="_blank"><img id="lien" src="<?=$sourceimg?>" alt="vlan le dossier"/><?="<p>" . $en . "</p>"?></a>
+                                </div><br>
+                            <?php
+                            break;
+
+                            case 'php';
+                            case 'html';
+                            case 'css';
+                            case 'js';
+                            $sourceimg = "img/car.svg"
+                            ?>
+                                <div class="imalien">
+                                    <a href="/<?=$_GET['dir']."/".$en?>" target="_blank"><img id="lien" src="<?=$sourceimg?>" alt="vlan le dossier"/><?="<p>" . $en . "</p>"?></a>
+                                </div><br>
+                            <?php
+                            break;
+
+                            default:
+                            $sourceimg = "img/question-mark.svg"
+                            ?>
+                                <div class="imalien">
+                                    <a href="/<?=$_GET['dir']."/".$en?>" target="_blank"><img id="lien" src="<?=$sourceimg?>" alt="vlan le dossier"/><?="<p>" . $en . "</p>"?></a>
+                                </div><br>
+                            <?php
+                            break;
+                            
+                        }
+                    }
+
+                    // S'IL N'Y A PAS D'EXTENSION : C'EST UN DOSSIER
+                    else{
+                        $sourceimg = "img/folder.png"
+                        ?>
+                        <div class="imalien">
+                            <a href="<?=$lienget?>"><img id="lien" src="<?=$sourceimg?>" alt="vlan le dossier"/><?="<p>" . $en . "</p>"?></a>
+                        </div><br>
+                    <?php
+                    }
+                }
+
+                // CAS OU ON EST A L'ACCUEIL
+                else if($en != 'index.html'){?>
+                    <div class="imalien">
+                        <a href="index.php?dir=<?=$en?>"><img id="lien" src="img/folder.png" alt="vlan le dossier"/><?="<p>" . $en . "</p>"?></a><br>
+                    </div>
+                <?php
+                }
             }
         }
     }
 }
 
 ?>
+
+</div>
 
 <script src="assets/js/script.js"></script>
 
