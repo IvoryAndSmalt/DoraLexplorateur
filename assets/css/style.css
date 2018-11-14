@@ -1,0 +1,113 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+
+/********************* le reset s'arrete la !!!! ***********************************/
+body{
+    background-color: #dadfe8;
+    /* background-image: url("../../img/DoraMap.png"); */
+    /* background-repeat: no-repeat; */
+    /* font-family: 'Roboto', sans-serif; */
+    font-family: 'Montserrat', sans-serif;
+    
+}
+.contenu{
+        border: solid; color: black;
+        max-width: 800px;
+        width: 100%;
+        margin: 0 auto;
+        padding: 5px 15px;
+        border-radius: 5px;
+    }
+
+.dossier{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:center;
+    
+    align-items: stretch;  
+    max-width: 800px;
+    width: 100%;
+    margin: 15px auto;
+    
+}
+
+.dossier div{
+    margin: 10px 15px 10px 0px;
+}
+
+.dossier div:hover a{
+    color:#91B2DA;
+}
+
+.imalien img, a {
+    display: block;
+    width: 100%;
+    text-decoration: none;
+    color: black;
+    font-size: 14px; 
+}
+
+.imalien img{
+max-width: 50px;
+height: auto;
+margin-left: auto;
+margin-right: auto;
+}
+
+
+h1{
+    margin-bottom: 20px;
+    text-align: center;
+    padding-top: 5px;
+    font-size: 50px;
+}
+
+
