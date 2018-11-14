@@ -61,7 +61,6 @@ body{
 .contenu{
         border: solid; color: black;
         max-width: 800px;
-        width: 100%;
         margin: 0 auto;
         padding: 5px 15px;
         border-radius: 5px;
@@ -71,15 +70,13 @@ body{
 .dossier{
     display: flex;
     flex-wrap: wrap;
-    justify-content:center;
-    
+    justify-content: left;
     align-items: stretch;  
     max-width: 800px;
     width: 100%;
     margin: 15px auto;
-    
-}
 
+}
 
 .dossier div{
     margin: 10px 15px 10px 0px;
@@ -91,9 +88,17 @@ body{
 
 
 .imalien {
-    width: 200px;
+    width: 175px;
     text-align: center;
     padding: 5px;
+}
+
+.imalien a p{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: clip ellipsis;
+    font-size: 14px;
+    min-height: 16px;
 }
 
 
@@ -102,7 +107,6 @@ body{
     width: 100%;
     text-decoration: none;
     color: black;
-    font-size: 14px; 
 }
 
 .imalien img{

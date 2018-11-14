@@ -13,6 +13,7 @@
 <!-- HEADER ET CHEMIN -->
     <h1>Dora L'explorateur</h1>
     <a href="./">Accueil</a>
+
 <div class="contenu">
 <?php
 $parent = "/var/www/html/";
@@ -32,9 +33,8 @@ function liste($dir){
         $dir = '/var/www/html/';
     }
     if ($handle = opendir($dir)) {
-        echo str_replace("/var/www/html/", "Localhost/", $dir);
-    ?>
-</div>
+        echo str_replace("/var/www/html/", "Localhost/", $dir);?>
+    </div>
 <!-- FONCTION AFFICHER LES DOSSIERS -->
 
 <div class="dossier">
@@ -52,6 +52,7 @@ function liste($dir){
                             case 'png';
                             case 'jpg';
                             case 'svg';
+                            case 'gif';
                             $sourceimg = "img/DoraMap.png"
                             ?>
                                 <div class="imalien">
@@ -94,8 +95,9 @@ function liste($dir){
                     <?php
                     }
                 }
-                else{
-                ?>
+
+                // CAS OU ON EST A L'ACCUEIL
+                else if($en != 'index.html'){?>
                     <div class="imalien">
                         <a href="index.php?dir=<?=$en?>"><img id="lien" src="img/folder.png" alt="vlan le dossier"/><?="<p>" . $en . "</p>"?></a><br>
                     </div>
