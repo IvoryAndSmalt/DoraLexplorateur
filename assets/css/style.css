@@ -68,11 +68,6 @@ body{
 }
 
 
-
-
-
-
-
 .contenu{
         border: solid; color: black;
         max-width: 800px;
@@ -138,3 +133,29 @@ h1{
     padding-top: 5px;
     font-size: 50px;
 }
+
+
+/***********FOOTER*********/
+#footer{
+    position: relative;
+}
+
+@keyframes moveleft {
+    from {left: -120px;}
+    to {left: 102%;}
+}
+
+.voiture{
+    position: fixed;
+    width: 120px;
+    height: auto;
+    bottom: 0;
+    left: 0;
+}
+
+#toggleRight{
+    animation: moveleft 20s infinite;
+    animation-timing-function: linear;
+    animation-direction: alternate;
+}
+

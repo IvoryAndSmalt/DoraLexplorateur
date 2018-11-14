@@ -130,6 +130,11 @@ function liste($dir){
        ?>
 </div>
 
+<footer id="footer">
+<img src="images/tondeuse.png" alt="dessin tondeuse" id="toggleRight" class="voiture">
+<img src="img/gazon.png" alt="gazon">
+</footer>
+
 <script src="assets/js/script.js"></script>
 
 </body>
