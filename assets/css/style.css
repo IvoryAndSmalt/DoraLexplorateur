@@ -67,6 +67,7 @@ body{
         border-radius: 5px;
     }
 
+
 .dossier{
     display: flex;
     flex-wrap: wrap;
@@ -79,6 +80,7 @@ body{
     
 }
 
+
 .dossier div{
     margin: 10px 15px 10px 0px;
 }
@@ -86,6 +88,14 @@ body{
 .dossier div:hover a{
     color:#91B2DA;
 }
+
+
+.imalien {
+    width: 200px;
+    text-align: center;
+    padding: 5px;
+}
+
 
 .imalien img, a {
     display: block;
@@ -96,10 +106,10 @@ body{
 }
 
 .imalien img{
-max-width: 50px;
-height: auto;
-margin-left: auto;
-margin-right: auto;
+    max-width: 50px;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 
@@ -109,5 +119,3 @@ h1{
     padding-top: 5px;
     font-size: 50px;
 }
-
-
