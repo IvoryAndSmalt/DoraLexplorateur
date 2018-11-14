@@ -49,7 +49,9 @@ function liste($dir){
                     if(isset($path_parts['extension'])){
                         $extension = $path_parts['extension'];
                         switch ($extension) {
-                            case 'png':
+                            case 'png';
+                            case 'jpg';
+                            case 'svg';
                             $sourceimg = "img/DoraMap.png"
                             ?>
                                 <div class="imalien">
@@ -58,8 +60,20 @@ function liste($dir){
                             <?php
                             break;
 
-                            default:
+                            case 'php';
+                            case 'html';
+                            case 'css';
+                            case 'js';
                             $sourceimg = "img/car.svg"
+                            ?>
+                                <div class="imalien">
+                                    <a href="/<?=$_GET['dir']."/".$en?>" target="_blank"><img id="lien" src="<?=$sourceimg?>" alt="vlan le dossier"/><?="<p>" . $en . "</p>"?></a>
+                                </div><br>
+                            <?php
+                            break;
+
+                            default:
+                            $sourceimg = "img/question-mark.svg"
                             ?>
                                 <div class="imalien">
                                     <a href="/<?=$_GET['dir']."/".$en?>" target="_blank"><img id="lien" src="<?=$sourceimg?>" alt="vlan le dossier"/><?="<p>" . $en . "</p>"?></a>
