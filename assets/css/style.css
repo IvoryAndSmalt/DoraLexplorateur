@@ -50,7 +50,6 @@ table {
 
 
 /********************* le reset s'arrete la !!!! ***********************************/
-<<<<<<< HEAD
 body{
     background-color: #dadfe8;
     /* background-image: url("../../img/DoraMap.png"); */
@@ -67,25 +66,12 @@ body{
         padding: 5px 15px;
         border-radius: 5px;
     }
-=======
-.contenu{
-    border: solid; color: black;
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-
->>>>>>> e31f16e68c8903ebeb13a2cf342e7a739647fb9c
 
 .dossier{
     display: flex;
     flex-wrap: wrap;
-<<<<<<< HEAD
     justify-content:center;
     
-=======
-    justify-content:left;
->>>>>>> e31f16e68c8903ebeb13a2cf342e7a739647fb9c
     align-items: stretch;  
     max-width: 800px;
     width: 100%;
@@ -125,7 +111,3 @@ h1{
 }
 
 
-<<<<<<< HEAD
-
-=======
->>>>>>> e31f16e68c8903ebeb13a2cf342e7a739647fb9c

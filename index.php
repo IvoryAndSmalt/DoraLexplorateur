@@ -5,13 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Dora l'explorateur</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet"> 
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body>
 <!-- HEADER ET CHEMIN -->
     <h1>Dora L'explorateur</h1>
-    <p><a href="./">Accueil</a></p>
+    <a href="./">Accueil</a>
 <div class="contenu">
 <?php
 $parent = "/var/www/html/";
@@ -57,14 +58,14 @@ function liste($dir){
                     ?>
                     
                     <div class="imalien">
-                        <a href="<?=$lienget ?>"><img id="lien" src="img/car.svg" alt="vlan le dossier"/><?="<p>" . $en . "</p>"?></a>
+                        <a href="<?=$lienget ?>"><img id="lien" src="img/folder.png" alt="vlan le dossier"/><?="<p>" . $en . "</p>"?></a>
                     </div><br>
 
                 <?php
                 }
                 else{?>
                     <div class="imalien">
-                        <a href="index.php?dir=<?=$en?>"><img id="lien" src="img/car.svg" alt="vlan le dossier"/><?="<p>" . $en . "</p>"?></a><br>
+                        <a href="index.php?dir=<?=$en?>"><img id="lien" src="img/folder.png" alt="vlan le dossier"/><?="<p>" . $en . "</p>"?></a><br>
                     </div>
                 <?php
             }
