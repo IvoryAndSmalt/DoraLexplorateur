@@ -21,11 +21,13 @@ Bonus : Intégrer votre projet avec Twig.  -->
 
 <?php
 
-if (isset($_GET['dir'])){
+if (isset($_GET['dir']))
+{
     liste($_GET['dir']);
 }
 
-else{
+else
+{
     liste('/var/www/html/');
 }
 
@@ -53,6 +55,17 @@ function liste($dir){
         }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
 
 ?>
 
