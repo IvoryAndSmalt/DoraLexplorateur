@@ -16,10 +16,9 @@
 <div class="contenu">
 <?php
 $parent = "/var/www/html/";
-if (isset($_GET['dir'])){
+if(isset($_GET['dir'])){
     liste($_GET['dir']);
 }
-
 else{
     liste($parent);
 }
@@ -36,58 +35,54 @@ function liste($dir){
         echo str_replace("/var/www/html/", "Localhost/", $dir);
     ?>
 </div>
-<!-- HEADER ET CHEMIN -->
-
 <!-- FONCTION AFFICHER LES DOSSIERS -->
 
 <div class="dossier">
     <?php
         while (false !== ($en = readdir($handle))) {
-            if($en !='.'&& $en != '..' && $en != '.git') {
-                if(isset($_GET['dir'])){ 
+            if($en != '.' && $en != '..' && $en != '.git') {
+                if(isset($_GET['dir'])){
                     $lienget="index.php?dir=".$_GET['dir'] . "/" . $en;
                     $path_parts = pathinfo($_GET['dir'] . "/" . $en);
-                    if(isset($path_parts['extension'])){
-                        global $extension;
-                        $extension = $path_parts['extension'];
-                    }
-                    else{
-                        $extension ="";
-                    }
-                    // $extension porte le STRING à tester dans le switch
-                    ?>
-                    
-                    <div class="imalien">
-                        <a href="<?=$lienget ?>"><img id="lien" src="img/folder.png" alt="vlan le dossier"/><?="<p>" . $en . "</p>"?></a>
-                    </div><br>
 
-                <?php
+                    // S'IL Y A UNE EXTENSION
+                    if(isset($path_parts['extension'])){
+                        $extension = $path_parts['extension'];
+                        switch ($extension) {
+                            case 'docx':
+                                // PROPOSER LE TELECHARGEMENT
+                            break;
+
+                            default:
+                            ?>
+                                <div class="imalien">
+                                    <a href="/<?=$_GET['dir']."/".$en?>" target="_blank"><img id="lien" src="img/folder.png" alt="vlan le dossier"/><?="<p>" . $en . "</p>"?></a>
+                                </div><br>
+                            <?php
+                            break;
+                            
+                        }
+                    }
+
+                    // S'IL N'Y A PAS D'EXTENSION : C'EST UN DOSSIER
+                    else{
+                        ?>
+                        <div class="imalien">
+                            <a href="<?=$lienget?>"><img id="lien" src="img/folder.png" alt="vlan le dossier"/><?="<p>" . $en . "</p>"?></a>
+                        </div><br>
+                    <?php
+                    }
                 }
-                else{?>
+                else{
+                ?>
                     <div class="imalien">
                         <a href="index.php?dir=<?=$en?>"><img id="lien" src="img/folder.png" alt="vlan le dossier"/><?="<p>" . $en . "</p>"?></a><br>
                     </div>
                 <?php
+                }
             }
         }
     }
-}
-}
-
-switch ($extension) {
-    case 'png, svg, jpg, gif, leformat':
-        echo '<div class="imalien"><a href="index.php?dir='.$en.'><img id="lien" src="img/car.svg" alt="vlan le dossier"/><p>' . $en . '</p>?></a><br></div>';
-        break;
-    
-    default:
-    if (isset($_GET['dir'])){
-        liste($_GET['dir']);
-    }
-    
-    else{
-        liste($parent);
-    }
-        break;
 }
 
 ?>
