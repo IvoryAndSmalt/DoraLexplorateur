@@ -49,14 +49,20 @@ function liste($dir){
                     if(isset($path_parts['extension'])){
                         $extension = $path_parts['extension'];
                         switch ($extension) {
-                            case 'docx':
-                                // PROPOSER LE TELECHARGEMENT
+                            case 'png':
+                            $sourceimg = "img/DoraMap.png"
+                            ?>
+                                <div class="imalien">
+                                    <a href="/<?=$_GET['dir']."/".$en?>" target="_blank"><img id="lien" src="<?=$sourceimg?>" alt="vlan le dossier"/><?="<p>" . $en . "</p>"?></a>
+                                </div><br>
+                            <?php
                             break;
 
                             default:
+                            $sourceimg = "img/car.svg"
                             ?>
                                 <div class="imalien">
-                                    <a href="/<?=$_GET['dir']."/".$en?>" target="_blank"><img id="lien" src="img/folder.png" alt="vlan le dossier"/><?="<p>" . $en . "</p>"?></a>
+                                    <a href="/<?=$_GET['dir']."/".$en?>" target="_blank"><img id="lien" src="<?=$sourceimg?>" alt="vlan le dossier"/><?="<p>" . $en . "</p>"?></a>
                                 </div><br>
                             <?php
                             break;
@@ -66,9 +72,10 @@ function liste($dir){
 
                     // S'IL N'Y A PAS D'EXTENSION : C'EST UN DOSSIER
                     else{
+                        $sourceimg = "img/folder.png"
                         ?>
                         <div class="imalien">
-                            <a href="<?=$lienget?>"><img id="lien" src="img/folder.png" alt="vlan le dossier"/><?="<p>" . $en . "</p>"?></a>
+                            <a href="<?=$lienget?>"><img id="lien" src="<?=$sourceimg?>" alt="vlan le dossier"/><?="<p>" . $en . "</p>"?></a>
                         </div><br>
                     <?php
                     }
