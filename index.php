@@ -11,7 +11,8 @@
 
 <body>
 <!-- HEADER ET CHEMIN -->
-    <h1>Dora L'explorateur</h1>
+<header id="header">
+<h1>Dora L'explorateur</h1>
     <a href="./">Accueil</a>
 
 <div class="contenu">
@@ -35,14 +36,21 @@ function liste($dir){
     if ($handle = opendir($dir)) {
         echo str_replace("/var/www/html/", "Localhost/", $dir);?>
     </div>
+
+</header>
+    
 <!-- FONCTION AFFICHER LES DOSSIERS -->
 
 <div class="dossier">
     <?php
+    $fichiersAZipper = array();
         while (false !== ($en = readdir($handle))) {
             if($en != '.' && $en != '..' && $en != '.git') {
+                
+                array_push($fichiersAZipper, $en);
+
                 if(isset($_GET['dir'])){
-                    $lienget="index.php?dir=".$_GET['dir'] . "/" . $en;
+                    $lienget="?dir=".$_GET['dir'] . "/" . $en;
                     $path_parts = pathinfo($_GET['dir'] . "/" . $en);
 
                     // S'IL Y A UNE EXTENSION
@@ -62,6 +70,15 @@ function liste($dir){
                             break;
 
                             case 'php';
+                            $sourceimg = "img/car.svg";
+                            ?>
+                                <div class="imalien">
+                                    <a href="/"></a>
+                                    <a href="/<?=$_GET['dir']."/".$en?>" target="_blank"><img id="lien" src="<?=$sourceimg?>" alt="vlan le dossier"/><?="<p>" . $en . "</p>"?></a>
+                                </div><br>
+                            <?php
+                            break;
+
                             case 'html';
                             case 'css';
                             case 'js';
@@ -80,11 +97,9 @@ function liste($dir){
                                     <a href="/<?=$_GET['dir']."/".$en?>" target="_blank"><img id="lien" src="<?=$sourceimg?>" alt="vlan le dossier"/><?="<p>" . $en . "</p>"?></a>
                                 </div><br>
                             <?php
-                            break;
-                            
+                            break;  
                         }
                     }
-
                     // S'IL N'Y A PAS D'EXTENSION : C'EST UN DOSSIER
                     else{
                         $sourceimg = "img/folder.png"
@@ -95,11 +110,10 @@ function liste($dir){
                     <?php
                     }
                 }
-
                 // CAS OU ON EST A L'ACCUEIL
                 else if($en != 'index.html'){?>
                     <div class="imalien">
-                        <a href="index.php?dir=<?=$en?>"><img id="lien" src="img/folder.png" alt="vlan le dossier"/><?="<p>" . $en . "</p>"?></a><br>
+                        <a href="?dir=<?=$en?>"><img id="lien" src="img/folder.png" alt="vlan le dossier"/><?="<p>" . $en . "</p>"?></a><br>
                     </div>
                 <?php
                 }
@@ -107,13 +121,19 @@ function liste($dir){
         }
     }
 }
-
-?>
-
+                ?>
 </div>
+
+<footer id="footer">
+    <img src="images/tondeuse.png" alt="dessin tondeuse" id="toggleRight" class="voiture">
+    <img src="img/gazon.png" alt="gazon">
+</footer>
 
 <script src="assets/js/script.js"></script>
 
 </body>
 
 </html>
+
+<!-- POUR SCANNER UN DOSSIER, UTILISER LE CHEMIN REEL
+POUR LIRE UN FICHIER EN PARTICULIER, UTILISER LE CHEMIN AVEC LOCALHOST, URL -->
