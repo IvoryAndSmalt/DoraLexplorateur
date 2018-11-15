@@ -53,39 +53,62 @@ body{
     font-family: 'Montserrat', sans-serif;
     
 }
+
+/********************HEADER**************************/
+
+#accueil{
+    position: absolute;
+    top: -8%;
+    width: auto;
+}
+
+#accueil img{
+    size: 80%;
+}
+
+#header{
+    margin: 0 auto;
+    text-align: center;
+    max-width: 800px;
+    min-height: 200px;
+    background: url("../../img/etagere.png") no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+
 .contenu{
-        border: solid; color: black;
-        max-width: 800px;
-        margin: 0 auto;
-        padding: 5px 15px;
-        border-radius: 5px;
-    }
+    max-width: 800px;
+    position: absolute;
+    bottom: 7%;
+    left: 3%;
+    color: white;
+}
 
 
 .dossier{
+    background: url('../../img/etage.png') repeat-y;
+    background-position-x: center;
+    background-size: 97.5%;
     display: flex;
     flex-wrap: wrap;
-    justify-content: left;
+    justify-content: center;
     align-items: stretch;  
     max-width: 800px;
     width: 100%;
-    margin: 15px auto;
+    margin: 0 auto;
+    padding-top: 25px;
 
 }
-
-.dossier div{
-    margin: 10px 15px 10px 0px;
-}
-
-.dossier div:hover a{
-    color:#91B2DA;
-}
-
 
 .imalien {
-    width: 175px;
+    margin: 21px 0px;
+    width: 170px;
     text-align: center;
-    padding: 5px;
+}
+
+.imalien:hover a{
+    color:#91B2DA;
 }
 
 .imalien a p{
@@ -94,6 +117,7 @@ body{
     text-overflow: clip ellipsis;
     font-size: 14px;
     min-height: 16px;
+    color: white;
 }
 
 
@@ -105,10 +129,15 @@ body{
 }
 
 .imalien img{
-    max-width: 50px;
-    height: auto;
+    height: 100px;
+    width: auto;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 22.5px;
+}
+
+.imalien img:hover{
+    cursor: url('../../img/pschit.cur'), auto;
 }
 
 
@@ -118,3 +147,28 @@ h1{
     padding-top: 5px;
     font-size: 50px;
 }
+
+/***********FOOTER*********/
+#footer{
+    position: relative;
+}
+
+@keyframes moveleft {
+    from {left: -120px;}
+    to {left: 102%;}
+}
+
+.voiture{
+    position: fixed;
+    width: 120px;
+    height: auto;
+    bottom: 0;
+    left: 0;
+}
+
+#toggleRight{
+    animation: moveleft 20s infinite;
+    animation-timing-function: linear;
+    animation-direction: alternate;
+}
+
