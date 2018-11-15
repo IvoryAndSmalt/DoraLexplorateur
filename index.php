@@ -11,10 +11,9 @@
 
 <body>
 <!-- HEADER ET CHEMIN -->
+<a id ="accueil" href="./"><img src="img/accueil.png" alt="pancarte accueil"></a>
 <header id="header">
-<h1>Dora L'explorateur</h1>
-    <a href="./">Accueil</a>
-
+<!-- <h1>Dora L'explorateur</h1> -->
 <div class="contenu">
 <?php
 $parent = "/var/www/html/";
@@ -61,59 +60,59 @@ function liste($dir){
                             case 'jpg';
                             case 'svg';
                             case 'gif';
-                            $sourceimg = "img/DoraMap.png"
+                            $sourceimg = "img/rose.png"
                             ?>
                                 <div class="imalien">
-                                    <a href="/<?=$_GET['dir']."/".$en?>" target="_blank"><img id="lien" src="<?=$sourceimg?>" alt="vlan le dossier"/><?="<p>" . $en . "</p>"?></a>
-                                </div><br>
+                                    <a href="/<?=$_GET['dir']."/".$en?>" target="_blank"><img id="lien" src="<?=$sourceimg?>" alt="vlan le dossier"/><?="<p>" . $en . "</p>"?></a><br>
+                                </div>
                             <?php
                             break;
 
                             case 'php';
-                            $sourceimg = "img/car.svg";
+                            $sourceimg = "img/pot3.png";
                             ?>
                                 <div class="imalien">
                                     <a href="/"></a>
-                                    <a href="/<?=$_GET['dir']."/".$en?>" target="_blank"><img id="lien" src="<?=$sourceimg?>" alt="vlan le dossier"/><?="<p>" . $en . "</p>"?></a>
-                                </div><br>
+                                    <a href="/<?=$_GET['dir']."/".$en?>" target="_blank"><img id="lien" src="<?=$sourceimg?>" alt="vlan le dossier"/><?="<p>" . $en . "</p>"?></a><br>
+                                </div>
                             <?php
                             break;
 
                             case 'html';
                             case 'css';
                             case 'js';
-                            $sourceimg = "img/car.svg"
+                            $sourceimg = "img/pot1.png"
                             ?>
                                 <div class="imalien">
-                                    <a href="/<?=$_GET['dir']."/".$en?>" target="_blank"><img id="lien" src="<?=$sourceimg?>" alt="vlan le dossier"/><?="<p>" . $en . "</p>"?></a>
-                                </div><br>
+                                    <a href="/<?=$_GET['dir']."/".$en?>" target="_blank"><img id="lien" src="<?=$sourceimg?>" alt="vlan le dossier"/><?="<p>" . $en . "</p>"?></a><br>
+                                </div>
                             <?php
                             break;
 
                             default:
-                            $sourceimg = "img/question-mark.svg"
+                            $sourceimg = "img/citrouille.png"
                             ?>
                                 <div class="imalien">
-                                    <a href="/<?=$_GET['dir']."/".$en?>" target="_blank"><img id="lien" src="<?=$sourceimg?>" alt="vlan le dossier"/><?="<p>" . $en . "</p>"?></a>
-                                </div><br>
+                                    <a href="/<?=$_GET['dir']."/".$en?>" target="_blank"><img id="lien" src="<?=$sourceimg?>" alt="vlan le dossier"/><?="<p>" . $en . "</p>"?></a><br>
+                                </div>
                             <?php
                             break;  
                         }
                     }
                     // S'IL N'Y A PAS D'EXTENSION : C'EST UN DOSSIER
                     else{
-                        $sourceimg = "img/folder.png"
+                        $sourceimg = "img/dossiers.png"
                         ?>
                         <div class="imalien">
-                            <a href="<?=$lienget?>"><img id="lien" src="<?=$sourceimg?>" alt="vlan le dossier"/><?="<p>" . $en . "</p>"?></a>
-                        </div><br>
+                            <a href="<?=$lienget?>"><img id="lien" src="<?=$sourceimg?>" alt="vlan le dossier"/><?="<p>" . $en . "</p>"?></a><br>
+                        </div>
                     <?php
                     }
                 }
                 // CAS OU ON EST A L'ACCUEIL
                 else if($en != 'index.html'){?>
                     <div class="imalien">
-                        <a href="?dir=<?=$en?>"><img id="lien" src="img/folder.png" alt="vlan le dossier"/><?="<p>" . $en . "</p>"?></a><br>
+                        <a href="?dir=<?=$en?>"><img id="lien" src="img/dossiers.png" alt="vlan le dossier"/><?="<p>" . $en . "</p>"?></a><br>
                     </div>
                 <?php
                 }
@@ -125,7 +124,7 @@ function liste($dir){
 </div>
 
 <footer id="footer">
-    <img src="images/tondeuse.png" alt="dessin tondeuse" id="toggleRight" class="voiture">
+    <img src="img/tondeuse.png" alt="dessin tondeuse" id="toggleRight" class="voiture">
     <img src="img/gazon.png" alt="gazon">
 </footer>
 
