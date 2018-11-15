@@ -17,7 +17,7 @@ $dossier = scandir($_GET['dossier']);
 // print_r($dossier);
 
 foreach ($dossier as $key => $file) {
-    echo '<a href="">'.$file.'</a><br>';
+    echo '<a href="../">'.$file.'</a><br>';
 }
 ?>
 
