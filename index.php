@@ -49,7 +49,7 @@ function liste($dir){
                 array_push($fichiersAZipper, $en);
 
                 if(isset($_GET['dir'])){
-                    $lienget="index.php?dir=".$_GET['dir'] . "/" . $en;
+                    $lienget="?dir=".$_GET['dir'] . "/" . $en;
                     $path_parts = pathinfo($_GET['dir'] . "/" . $en);
 
                     // S'IL Y A UNE EXTENSION
@@ -69,11 +69,7 @@ function liste($dir){
                             break;
 
                             case 'php';
-                            // $sourceimg = "img/car.svg";
-                            // $file = $_GET['dir']."/".$en;
-                            // $contenu = file_get_contents($file);
-
-                            // echo "<br><br>Contenu du fichier $file : <br><pre>$contenu</pre>"; 
+                            $sourceimg = "img/car.svg";
                             ?>
                                 <div class="imalien">
                                     <a href="/"></a>
@@ -119,7 +115,7 @@ function liste($dir){
                 // CAS OU ON EST A L'ACCUEIL
                 else if($en != 'index.html'){?>
                     <div class="imalien">
-                        <a href="index.php?dir=<?=$en?>"><img id="lien" src="img/folder.png" alt="vlan le dossier"/><?="<p>" . $en . "</p>"?></a><br>
+                        <a href="?dir=<?=$en?>"><img id="lien" src="img/folder.png" alt="vlan le dossier"/><?="<p>" . $en . "</p>"?></a><br>
                     </div>
                 <?php
                 }
