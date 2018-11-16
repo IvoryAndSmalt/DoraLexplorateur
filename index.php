@@ -16,23 +16,31 @@
 <!-- <h1>Dora L'explorateur</h1> -->
 <div class="contenu">
 <?php
-$parent = "/var/www/html/";
-if (isset($_GET['dir'])) {
+$parent = "../";
+if(isset($_GET['dir'])){
     liste($_GET['dir']);
+    boutonRetour($_GET['dir']);
 } else {
     liste($parent);
+}
+
+function boutonRetour($dir){
+    $retour = strrpos($dir, "/");
+    $retour = substr($dir, 0, $retour);
+    echo '<p><a href="?dir='.$retour.'">Retour</a></p>';
 }
 
 function liste($dir)
 {
     if (isset($_GET['dir'])) {
 
-        $dir = '/var/www/html/' . $_GET['dir'];
-    } else {
-        $dir = '/var/www/html/';
+    $dir = '../' . $_GET['dir'];
+    }
+    else {
+        $dir = '../';
     }
     if ($handle = opendir($dir)) {
-        echo str_replace("/var/www/html/", "Localhost/", $dir);?>
+        echo str_replace("../", "Localhost/", $dir);?>
     </div>
 
 </header>
@@ -119,7 +127,6 @@ $fichiersAZipper = array();
         }
     }
 }
-
 ?>
 </div>
 
@@ -132,8 +139,6 @@ $fichiersAZipper = array();
 <script src="assets/js/script.js"></script>
 
 </body>
-
 </html>
-
 <!-- POUR SCANNER UN DOSSIER, UTILISER LE CHEMIN REEL
 POUR LIRE UN FICHIER EN PARTICULIER, UTILISER LE CHEMIN AVEC LOCALHOST, URL -->
