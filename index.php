@@ -17,6 +17,7 @@
 <!-- HEADER ET CHEMIN -->
 <a id ="accueil" href="./index.php"><img src="img/accueil.png" alt="pancarte accueil"></a>
 <?php
+session_start();
 $parent = "../";
 if(isset($_GET['dir'])){
     boutonRetour($_GET['dir']);
@@ -46,7 +47,7 @@ function liste($dir)
 <header id="header">
     <?php
 if ($handle = opendir($dir)) {
-        echo "<p id='adresse'>" . str_replace("../", "Localhost", $dir) . "</p>"?>
+        echo "<p id='adresse'>" . str_replace("../", "Localhost/", $dir) . "</p>"?>
 <!-- <h1>Dora L'explorateur</h1> -->
 
 </header>
@@ -81,19 +82,16 @@ $fichiersAZipper = array();
                             <?php
                             break;
 
+                            
                             case 'php';
-                                $sourceimg = "img/pot3.png";
-                                $content = file_get_contents($_GET['dir'] . "/" . $en, true, FILE_USE_INCLUDE_PATH);
-                                ?>
-                                <div class="imalien">
-                                    <form action="/download.php" method="post">
-                                        <input type="hidden" id="oui" name="content" value="<?=$content?>">
-                                        <input type="submit" value="Afficher le texte">
-                                    </form>
-                                </div>
+                            $sourceimg = "img/pot3.png";
+                            ?>
+                            <div class="imalien">
+                                <a href="/<?=$_GET['dir'] . "/" . $en?>" target="_blank"><img id="lien" src="<?=$sourceimg?>" alt="vlan le dossier"/><?="<p>" . $en . "</p>"?></a><br>
+                            </div>
                             <?php
                             break;
-
+                            
                             case 'html';
                             case 'css';
                             case 'js';
@@ -148,7 +146,7 @@ $fichiersAZipper = array();
 <script src="assets/js/script.js"></script>
 
 </body>
-<a href="/download.php?fill=<?=$myfile?>>" target="_blank"><img id="lien" src="<?=$sourceimg?>" alt="vlan le dossier"/><?="test"?></a><br>
+
 </html>
 <!-- POUR SCANNER UN DOSSIER, UTILISER LE CHEMIN REEL
 POUR LIRE UN FICHIER EN PARTICULIER, UTILISER LE CHEMIN AVEC LOCALHOST, URL -->
