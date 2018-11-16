@@ -209,7 +209,6 @@ h1{
     opacity: 0;
 }
 
-
 #retour{
         position: absolute;
         top: 50%;
@@ -220,3 +219,11 @@ h1{
     size: 80%;
 }
 
+#attention{
+    color: red;
+    font-size: 0.8em;
+    text-align: left;
+    margin-left: 80%;
+    margin-top: 15%;
+    position: fixed;
+}

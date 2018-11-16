@@ -10,6 +10,10 @@
 </head>
 
 <body>
+
+<h1 id="attention">
+    NE PAS ENTRER DANS LA CABANE DE JARDIN EN REGARDANT VOTRE TELEPHONE (càd : site non responsive)
+</h1>
 <!-- HEADER ET CHEMIN -->
 <a id ="accueil" href="./index.php"><img src="img/accueil.png" alt="pancarte accueil"></a>
 <header id="header">
