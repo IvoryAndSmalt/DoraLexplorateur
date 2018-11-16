@@ -40,7 +40,7 @@ function liste($dir)
         $dir = '../';
     }
     if ($handle = opendir($dir)) {
-        echo str_replace("../", "Localhost", $dir);?>
+        echo str_replace("../", "Localhost/", $dir);?>
     </div>
 
 </header>
