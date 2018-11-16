@@ -16,36 +16,38 @@
 </h1>
 <!-- HEADER ET CHEMIN -->
 <a id ="accueil" href="./index.php"><img src="img/accueil.png" alt="pancarte accueil"></a>
-<header id="header">
-<!-- <h1>Dora L'explorateur</h1> -->
-<div class="contenu">
 <?php
 $parent = "../";
-if (isset($_GET['dir'])) {
+if(isset($_GET['dir'])){
     boutonRetour($_GET['dir']);
     liste($_GET['dir']);
 } else {
     liste($parent);
+    boutonRetour($parent);
 }
 
-function boutonRetour($dir)
-{
+function boutonRetour($dir){
     $retour = strrpos($dir, "/");
     $retour = substr($dir, 0, $retour);
-    echo '<p><a id="retour" href="?dir=' . $retour . '">Retour</a></p>';
+    echo '<p><a id="retour" href="?dir='.$retour.'"> <img src="images/retour.png" alt="pancarte retour"> </a></p>';
 }
-
 function liste($dir)
 {
     if (isset($_GET['dir'])) {
 
-        $dir = '../' . $_GET['dir'];
-    } else {
+    $dir = '../' . $_GET['dir'];
+    }
+    else {
         $dir = '../';
     }
-    if ($handle = opendir($dir)) {
-        echo str_replace("../", "Localhost/", $dir);?>
+    ?>
     </div>
+
+<header id="header">
+    <?php
+if ($handle = opendir($dir)) {
+        echo "<p id='adresse'>" . str_replace("../", "Localhost", $dir) . "</p>"?>
+<!-- <h1>Dora L'explorateur</h1> -->
 
 </header>
 
@@ -81,11 +83,11 @@ $fichiersAZipper = array();
 
                             case 'php';
                                 $sourceimg = "img/pot3.png";
-                                $content = file_get_contents("../" . $_GET['dir'] . "/" . $en);
+                                $content = file_get_contents($_GET['dir'] . "/" . $en, true, FILE_USE_INCLUDE_PATH);
                                 ?>
                                 <div class="imalien">
                                     <form action="/download.php" method="post">
-                                        <input type="hidden" name="content" value=<?=$content?>>
+                                        <input type="hidden" id="oui" name="content" value="<?=$content?>">
                                         <input type="submit" value="Afficher le texte">
                                     </form>
                                 </div>
