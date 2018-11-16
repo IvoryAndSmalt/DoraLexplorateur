@@ -1,8 +1,3 @@
- Bilel @bilelh 9:43 AM
-
-```
-/* C'est le CSS d'Emi OKKKKKK */
-
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -16,35 +11,226 @@ article, aside, canvas, details, embed,
 figure, figcaption, footer, header, hgroup, 
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section {
-	display: block;
+    display: block;
 }
 body {
-	line-height: 1;
+    line-height: 1;
 }
 ol, ul {
-	list-style: none;
+    list-style: none;
 }
 blockquote, q {
-	quotes: none;
+    quotes: none;
 }
 blockquote:before, blockquote:after,
 q:before, q:after {
-	content: '';
-	content: none;
+    content: '';
+    content: none;
 }
 table {
-	border-collapse: collapse;
-	border-spacing: 0;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+
+
+/********************* le reset s'arrete la !!!! ***********************************/
+body{
+    background-color: #dadfe8;
+    /* background-image: url("../../img/DoraMap.png"); */
+    /* background-repeat: no-repeat; */
+    /* font-family: 'Roboto', sans-serif; */
+    font-family: 'Montserrat', sans-serif;
+    
+}
+
+/********************HEADER**************************/
+
+
+#accueil{
+    position: absolute;
+    top: -8%;
+    width: auto;
+}
+
+#accueil img{
+    size: 80%;
+}
+
+
+#header{
+    margin: 0 auto;
+    margin-top : 70px;
+    text-align: center;
+    max-width: 800px;
+    min-height: 200px;
+    background: url("../../img/etagere.png") no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+#adresse {
+    position: absolute;
+    bottom: 7%;
+    left: 3%;
+    color: white;
+}
+
+.contenu{
+    
+    max-width: 800px;
+    position: absolute;
+    bottom: 7%;
+    left: 3%;
+    color: white;
+}
+
+
+#retour{
+    position: absolute;
+    z-index: 100;
+    position: absolute;
+    top: -8%;
+    width: auto;
+    right: 0;
+    
+}
+
+#retour img{
+    height: 235px;
+}
+
+
+.dossier{
+    background: url('../../img/etage.png') repeat-y;
+    background-position-x: center;
+    background-size: 97.5%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;  
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
+    padding-top: 25px;
+
+}
+
+.imalien {
+    margin: 21px 0px;
+    width: 170px;
+    text-align: center;
+}
+
+.imalien:hover a{
+    color:#91B2DA;
+}
+
+.imalien a p{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: clip ellipsis;
+    font-size: 14px;
+    min-height: 16px;
+    color: white;
+}
+
+
+.imalien img, a {
+    display: block;
+    width: 100%;
+    text-decoration: none;
+    color: black;
+}
+
+.imalien img{
+    height: 100px;
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 22px;
+}
+
+
+.imalien :hover{
+    cursor: url('../../img/arrosoir.gif'), auto;
+}
+
+
+h1{
+    margin-bottom: 20px;
+    text-align: center;
+    padding-top: 5px;
+    font-size: 50px;
+}
+
+/***********FOOTER*********/
+#footer{
+    position: relative;
+}
+
+@keyframes moveleft {
+    from {left: -20%;}
+    to {left: 102%;}
+}
+
+.voiture{
+    position: fixed;
+    width: 120px;
+    height: auto;
+    bottom: 0;
+    left: 0;
+    z-index: 2;
+}
+
+#toggleRight{
+    animation: moveleft 20s infinite;
+    animation-timing-function: linear;
+    animation-direction: alternate;
+}
+
+
+#gazon {
+    height: 30px;
+    width: 100%;
+    background: url('../../img/grass.png');
+    background-size: 100% 100%;
+    position: fixed;
+    z-index: 1;
+    bottom: 0px;
+    left: 0px;
+}
+
+/*************index . html************/
+
+.cabane{
+    position: relative;
+}
+
+.cabane img{
+    width: 100%;
+}
+
+.porteouverte{
+    display: block;
+    position: absolute;
+    top: 30.9%;
+    left: 45.1%;
+    width: 10.2%;
+}
+
+.porteouverte:hover{
+    opacity: 0;
 }
 
 
