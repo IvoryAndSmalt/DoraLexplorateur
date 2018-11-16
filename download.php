@@ -32,7 +32,7 @@
 
 <body>
 <!-- HEADER ET CHEMIN -->
-<a id ="accueil" href="./"><img src="img/accueil.png" alt="pancarte accueil"></a>
+<a id ="accueil" href="./index.php"><img src="img/accueil.png" alt="pancarte accueil"></a>
 <header id="header">
 <!-- <h1>Dora L'explorateur</h1> -->
 <div class="contenu">
@@ -48,13 +48,13 @@ else{
 function liste($dir){
     if (isset($_GET['dir'])){
 
-    $dir = '/var/www/html/' . $_GET['dir'];
+    $dir = $parent . $_GET['dir'];
     }
     else {
-        $dir = '/var/www/html/';
+        $dir = $parent;
     }
     if ($handle = opendir($dir)) {
-        echo str_replace("/var/www/html/", "Localhost/", $dir);?>
+        echo str_replace($parent, "Localhost/", $dir);?>
     </div>
 
 </header>

@@ -11,7 +11,7 @@
 
 <body>
 <!-- HEADER ET CHEMIN -->
-<a id ="accueil" href="./"><img src="img/accueil.png" alt="pancarte accueil"></a>
+<a id ="accueil" href="./index.php"><img src="img/accueil.png" alt="pancarte accueil"></a>
 <header id="header">
 <!-- <h1>Dora L'explorateur</h1> -->
 <div class="contenu">
