@@ -18,8 +18,8 @@
 <?php
 $parent = "../";
 if(isset($_GET['dir'])){
-    liste($_GET['dir']);
     boutonRetour($_GET['dir']);
+    liste($_GET['dir']);
 } else {
     liste($parent);
 }
