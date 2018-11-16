@@ -208,3 +208,14 @@ h1{
     opacity: 0;
 }
 
+
+#retour{
+        position: absolute;
+        top: 50%;
+        width: auto;
+}
+    
+#retour img{
+    size: 80%;
+}
+

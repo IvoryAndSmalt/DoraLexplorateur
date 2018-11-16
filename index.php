@@ -27,7 +27,7 @@ if(isset($_GET['dir'])){
 function boutonRetour($dir){
     $retour = strrpos($dir, "/");
     $retour = substr($dir, 0, $retour);
-    echo '<p><a href="?dir='.$retour.'">Retour</a></p>';
+    echo '<p><a id="retour" href="?dir='.$retour.'">Retour</a></p>';
 }
 
 function liste($dir)
@@ -40,7 +40,7 @@ function liste($dir)
         $dir = '../';
     }
     if ($handle = opendir($dir)) {
-        echo str_replace("../", "Localhost/", $dir);?>
+        echo str_replace("../", "Localhost", $dir);?>
     </div>
 
 </header>
