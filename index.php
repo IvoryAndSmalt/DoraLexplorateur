@@ -19,8 +19,15 @@
 $parent = "../";
 if(isset($_GET['dir'])){
     liste($_GET['dir']);
+    boutonRetour($_GET['dir']);
 } else {
     liste($parent);
+}
+
+function boutonRetour($dir){
+    $retour = strrpos($dir, "/");
+    $retour = substr($dir, 0, $retour);
+    echo '<p><a href="?dir='.$retour.'">Retour</a></p>';
 }
 
 function liste($dir)
