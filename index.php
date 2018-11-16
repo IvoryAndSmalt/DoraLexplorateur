@@ -15,7 +15,7 @@
     NE PAS ENTRER DANS LA CABANE DE JARDIN EN REGARDANT VOTRE TELEPHONE (càd : site non responsive)
 </h1>
 <!-- HEADER ET CHEMIN -->
-<a id ="accueil" href="./index.php"><img src="img/accueil.png" alt="pancarte accueil"></a>
+<a id ="accueil" href="./index.html"><img src="img/accueil.png" alt="pancarte accueil"></a>
 <?php
 session_start();
 $parent = "../";
